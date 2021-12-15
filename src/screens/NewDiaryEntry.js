@@ -1,20 +1,20 @@
 import React from 'react';
  import { View, Text, Button } from 'react-native';
 
- const ScreenOne = ({navigation}) => {
+ const NewDiaryEntry = ({navigation}) => {
    return (
      <View>
          <Text>This is screen one :)</Text>
          <Button 
-             title = "Index"
+             title = "Home"
              onPress = {() => navigation.navigate('Index')}
          />
          <Button 
-             title = "Screen 2"
-             onPress = {() => navigation.navigate('ScreenTwo')}
+             title = "History"
+             onPress = {() => navigation.navigate('History')}
          />
      </View>
    );
  }
 
- export default ScreenOne; 
+ export default NewDiaryEntry; 

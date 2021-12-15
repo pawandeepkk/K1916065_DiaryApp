@@ -2,8 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import IndexScreen from './src/screens/IndexScreen';
-import ScreenOne from './src/screens/ScreenOne';
- import ScreenTwo from './src/screens/ScreenTwo';
+import NewDiaryEntry from './src/screens/NewDiaryEntry';
+import History from './src/screens/History';
 
  const Stack = createNativeStackNavigator();
 
@@ -17,14 +17,14 @@ import ScreenOne from './src/screens/ScreenOne';
            options={{ title: "Reading Diary" }}
          />
          <Stack.Screen 
-           name="ScreenOne"
-           component={ScreenOne}
-           options={{ title: "Screen 1" }}
+           name="NewDiaryEntry"
+           component={NewDiaryEntry}
+           options={{ title: "New Diary Entry" }}
          />
          <Stack.Screen 
-           name="ScreenTwo"
-           component={ScreenTwo}
-           options={{ title: "Screen 2" }}
+           name="History"
+           component={History}
+           options={{ title: "History" }}
          />
        </Stack.Navigator>
      </NavigationContainer>

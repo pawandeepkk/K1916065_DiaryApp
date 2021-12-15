@@ -5,12 +5,12 @@ import React from 'react';
    return (
      <View>
          <Button 
-             title="Screen 1"
-             onPress={() => navigation.navigate('ScreenOne')}
+             title="New Diary Entry"
+             onPress={() => navigation.navigate('NewDiaryEntry')}
          />
          <Button 
-             title="Screen 2"
-             onPress={() => navigation.navigate('ScreenTwo')}
+             title="History"
+             onPress={() => navigation.navigate('History')}
          />
              <Text>Pawan</Text>
      </View>
