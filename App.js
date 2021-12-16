@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Index from './src/screens/Index';
 import NewDiaryEntry from './src/screens/NewDiaryEntry';
 import History from './src/screens/History';
+import ViewHistoryItem from './src/screens/ViewHistoryItem';
 
  const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,11 @@ import History from './src/screens/History';
            name="History"
            component={History}
            options={{ title: "History" }}
+         />
+         <Stack.Screen 
+           name="ViewHistoryItem"
+           component={ViewHistoryItem}
+           options={{ title: "View Item" }}
          />
        </Stack.Navigator>
      </NavigationContainer>

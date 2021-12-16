@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native';
 import NavButton from '../components/NavButton';
 
 const dummyData = [
@@ -89,22 +89,31 @@ const dummyData = [
             keyExtractor={(e) => e.id.toString()}
             renderItem={({item}) => {
               return (
-                <View style={styles.itemContainer}>
-                  <View style={styles.dateContainer}>
-                      <Text style={styles.dateText}>
-                      {item.date.toLocaleDateString()}
+                <Pressable onPress={() => {
+                  navigation.navigate('ViewHistoryItem', {
+                    id: item.id,
+                    title: item.title,
+                    content: item.content,
+                    date: item.date.toUTCString()
+                  });
+                }}>
+                  <View style={styles.itemContainer}>
+                    <View style={styles.dateContainer}>
+                        <Text style={styles.dateText}>
+                          {item.date.toLocaleDateString()}
+                        </Text>
+                        <Text>{item.date.toLocaleTimeString()}</Text>
+                    </View>
+                    <View style={styles.contentContainer}>
+                      <Text style={styles.titleText}>
+                        {item.title}
                       </Text>
-                      <Text>{item.date.toLocaleTimeString()}</Text>
+                      <Text style={styles.contentText}>
+                        {item.content}
+                      </Text>
+                    </View>
                   </View>
-                  <View style={styles.contentContainer}>
-                  <Text style={styles.titleText}>
-                  {item.title}
-                  </Text>
-                  <Text style={styles.contentText}>
-                  {item.content}
-                  </Text>
-                  </View>
-                </View>
+                </Pressable>
               )
             }}
           />
