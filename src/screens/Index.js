@@ -1,18 +1,14 @@
 import React from 'react';
-import { View, Text, Button, ScrollView } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import ListItem from '../components/ListItem';
+import NavButton from '../components/NavButton';
 
  const IndexScreen = ({navigation}) => {
    return (
      <View>
-         <Button 
-             title="New Diary Entry"
-             onPress={() => navigation.navigate('NewDiaryEntry')}
-         />
-         <Button 
-             title="History"
-             onPress={() => navigation.navigate('History')}
-         />
+         <NavButton screenName="New Diary Entry" screenNav="NewDiaryEntry" navigation={navigation} />
+         <NavButton screenName="History" screenNav="History" navigation={navigation} />
+         
          <ScrollView horizontal={false}>
              <Text>This is the home screen</Text>
              <ListItem caption = "This is a picture of a girl reading" image = {require('../../assets/girl-reading.jpg')} />

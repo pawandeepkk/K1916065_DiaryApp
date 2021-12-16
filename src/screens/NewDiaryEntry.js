@@ -1,18 +1,13 @@
 import React from 'react';
- import { View, Text, Button } from 'react-native';
+import { View, Text} from 'react-native';
+import NavButton from '../components/NavButton';
 
  const NewDiaryEntry = ({navigation}) => {
    return (
      <View>
+        <NavButton screenName="Home" screenNav="Index" navigation={navigation} />
+         <NavButton screenName="History" screenNav="History" navigation={navigation} />
          <Text>This is screen one :)</Text>
-         <Button 
-             title = "Home"
-             onPress = {() => navigation.navigate('Index')}
-         />
-         <Button 
-             title = "History"
-             onPress = {() => navigation.navigate('History')}
-         />
      </View>
    );
  }
