@@ -1,5 +1,6 @@
 import React from 'react';
- import { View, Text, Button } from 'react-native';
+import { View, Text, Button, ScrollView } from 'react-native';
+import ListItem from '../components/ListItem';
 
  const IndexScreen = ({navigation}) => {
    return (
@@ -12,7 +13,13 @@ import React from 'react';
              title="History"
              onPress={() => navigation.navigate('History')}
          />
-             <Text>Pawan</Text>
+         <ScrollView horizontal={false}>
+             <Text>This is the home screen</Text>
+             <ListItem caption = "This is a picture of a girl reading" image = {require('../../assets/girl-reading.jpg')} />
+             <ListItem caption = "This is a picture of a boy reading" image = {require('../../assets/boy-reading.jpg')} />
+             <ListItem caption = "This is a picture of a girl reading" image = {require('../../assets/girl-reading.jpg')} />
+             <ListItem caption = "This is a picture of a boy reading" image = {require('../../assets/boy-reading.jpg')} />
+          </ScrollView>
      </View>
    );
  }
