@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Button} from 'react-native';
+import ItemContext from '../contexts/ItemContext';
 import NavButton from '../components/NavButton';
 
  const NewDiaryEntry = ({navigation, route}) => {
-
-  // callback error
-
-  // const {callback} = route.params; 
+  const {create} = useContext(ItemContext);
   const [title, setTitle] = useState("");
   const [pages, setPages] = useState("");
   const [content, setContent] = useState("");
@@ -46,7 +44,7 @@ import NavButton from '../components/NavButton';
           <Button 
             title="Submit"
             onPress={() =>{
-              callback({title: title, pages: pages, content: content});
+              create(title, pages, content);
               navigation.pop();
             }}
           />
