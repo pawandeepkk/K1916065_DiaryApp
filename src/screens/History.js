@@ -1,6 +1,7 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState, useReducer} from 'react';
 import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native';
 import NavButton from '../components/NavButton';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const dummyData = [
   {
@@ -77,15 +78,58 @@ const dummyData = [
   },
 ]
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    // CREATE, UPDATE, DELETE endpoints
+    case 'Create':
+      return [
+        ...state,
+        {
+          id: Math.floor(Math.random() * 999999),
+          title: action.payload.title,
+          pages: action.payload.pages,
+          content: action.payload.content,
+          date: new Date()
+        }
+      ]
+    case 'Update':
+      return state.map((e) => {
+        if (e.id === action.payload.id) {
+          return action.payload;
+        } else {
+          return e;
+        }
+      });
+    case 'Delete':
+      return state.filter((e) => e.id !== action.payload.id);
+    default:
+      return state;
+  }
+}
+
  const History = ({navigation}) => {
-    const [items, setItems] = useState(dummyData);
+    const [state, dispatch] = useReducer(reducer, dummyData)
+
   
+    useEffect(() => {
+      navigation.setOptions({
+        headerRight: () => 
+          <Pressable onPress={() => navigation.navigate(
+              "NewDiaryEntry", {callback: (payload) => {
+                dispatch({type: "Create", payload: payload})
+              }})}
+            >
+            <MaterialIcons  name="add" size={24} color="blue" />
+          </Pressable>
+      })
+    }, [state]);
+
     return (
       <View>
           <NavButton screenName="Home" screenNav="Index" navigation={navigation} />
           <NavButton screenName="New Diary Entry" screenNav="NewDiaryEntry" navigation={navigation} />
           <FlatList 
-            data={items}
+            data={state}
             keyExtractor={(e) => e.id.toString()}
             renderItem={({item}) => {
               return (

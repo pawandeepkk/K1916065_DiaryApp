@@ -1,24 +1,55 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet} from 'react-native';
+import { View, Text, TextInput, StyleSheet, Button} from 'react-native';
 import NavButton from '../components/NavButton';
 
- const NewDiaryEntry = ({navigation}) => {
-    const [name, setName] = useState('');
+ const NewDiaryEntry = ({navigation, route}) => {
+
+  // callback error
+
+  // const {callback} = route.params; 
+  const [title, setTitle] = useState("");
+  const [pages, setPages] = useState("");
+  const [content, setContent] = useState("");
+
     return (
        <View>
           <NavButton screenName="Home" screenNav="Index" navigation={navigation} />
            <NavButton screenName="History" screenNav="History" navigation={navigation} />
 
-          <Text style={styles.textLabel}>Enter your name:</Text>
+          <Text style={styles.textLabel}>What book did you read today?</Text>
           <TextInput
             style={styles.TextInput} 
             placeholder="Type here"
-            value={name}
+            value={title}
             onChangeText={(text) => {
-              setName(text);
+              setTitle(text);
             }} 
           />
-          <Text style={styles.textLabel}>Your name is {name}</Text>
+          <Text style={styles.textLabel}>How many pages did you read?</Text>
+          <TextInput
+            style={styles.TextInput} 
+            placeholder="Type here"
+            value={pages}
+            onChangeText={(text) => {
+              setPages(text);
+            }} 
+          />
+          <Text style={styles.textLabel}>What did you learn from this reading?</Text>
+          <TextInput
+            style={styles.TextInput} 
+            placeholder="Type here"
+            value={content}
+            onChangeText={(text) => {
+              setContent(text);
+            }} 
+          />
+          <Button 
+            title="Submit"
+            onPress={() =>{
+              callback({title: title, pages: pages, content: content});
+              navigation.pop();
+            }}
+          />
         </View>
    );
  }
