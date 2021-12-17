@@ -44,8 +44,9 @@ import NavButton from '../components/NavButton';
           <Button 
             title="Submit"
             onPress={() =>{
-              create(title, pages, content);
-              navigation.pop();
+              //add new screen instead of navigation.pop
+              create(title, pages, content, () => navigation.pop());
+              
             }}
           />
         </View>

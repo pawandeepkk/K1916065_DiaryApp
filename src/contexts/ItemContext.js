@@ -115,11 +115,19 @@ export const ItemProvider = ({children}) => {
             callback();
         }
     }
+
+    const deleteItem = (id, callback) => {
+        dispatch({type: actionTypes.delete, payload: {id:id}})
+        if (callback) {
+            callback();
+        }
+    }
     
     return (
         <ItemContext.Provider value={{
             state: state,
             create: addItem,
+            remove: deleteItem,
         }}>
             {children}
         </ItemContext.Provider>

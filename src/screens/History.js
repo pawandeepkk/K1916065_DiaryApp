@@ -6,7 +6,7 @@ import { actionTypes } from '../helpers/actionTypes';
 import ItemContext from '../contexts/ItemContext';
 
  const History = ({navigation}) => {
-  const {state} = useContext(ItemContext);
+  const {state, remove} = useContext(ItemContext);
 
   useEffect(() => {
     navigation.setOptions({
@@ -42,12 +42,13 @@ import ItemContext from '../contexts/ItemContext';
                       <Text>{item.date.toLocaleTimeString()}</Text>
                   </View>
                   <View style={styles.contentContainer}>
-                    <Text style={styles.titleText}>
-                      {item.title}
-                    </Text>
-                    <Text style={styles.contentText}>
-                      {item.content}
-                    </Text>
+                    <Text style={styles.titleText}>{item.title}</Text>
+                    <Text style={styles.contentText}>{item.content}</Text>
+                    <Pressable onPress={() => {
+                      remove(item.id);
+                    }}>
+                      <MaterialIcons name="delete" size={38} color="grey" />
+                    </Pressable>
                   </View>
                 </View>
               </Pressable>
@@ -86,7 +87,6 @@ import ItemContext from '../contexts/ItemContext';
    contentText: {
      fontSize: 12,
      paddingLeft: 15,
-
    }
  });
 
