@@ -4,6 +4,7 @@ import NavButton from '../components/NavButton';
 
  const ViewHistoryItem = ({navigation, route}) => {
      const {id, title, content, date} = route.params;
+     
      return (
      <View>
          <NavButton screenName="History" screenNav="History" navigation={navigation} />

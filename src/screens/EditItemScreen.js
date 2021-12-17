@@ -46,8 +46,13 @@ const EditItemScreen = ({navigation, route}) => {
            <Button 
              title="Submit"
              onPress={() => {
-               //TO DO : add new screen instead of navigation.pop
-               update(currentItem.id, title, pages, content, currentItem.date, () => navigation.pop());
+               update(currentItem.id, title, pages, content, currentItem.date);
+               navigation.navigate('ViewHistoryItem', {
+                  id: currentItem.id,
+                  title: title,
+                  content: content,
+                  date: currentItem.date.toUTCString()
+                });
              }}
            />
          </View>
