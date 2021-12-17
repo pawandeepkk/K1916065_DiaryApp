@@ -41,6 +41,7 @@ const NewDiaryEntry = ({navigation, route}) => {
               setContent(text);
             }} 
           />
+          <NavButton screenName="Take a picture!" screenNav="Camera" navigation={navigation} />
           <Button 
             title="Submit"
             onPress={() =>{

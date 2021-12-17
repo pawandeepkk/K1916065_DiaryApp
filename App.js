@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Index from './src/screens/Index';
+import IndexScreen from './src/screens/IndexScreen';
 import NewDiaryEntry from './src/screens/NewDiaryEntry';
 import History from './src/screens/History';
 import ViewHistoryItem from './src/screens/ViewHistoryItem';
 import { ItemProvider } from './src/contexts/ItemContext';
 import EditItemScreen from './src/screens/EditItemScreen';
 import CameraScreen from './src/screens/CameraScreen';
+import StoredPictures from './src/screens/StoredPictures';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +19,7 @@ const App = () => {
         <Stack.Navigator initialRouteName ="Index">
           <Stack.Screen 
             name="Index"
-            component={Index}
+            component={IndexScreen}
             options={{ title: "Reading Diary" }}
           />
           <Stack.Screen 
@@ -45,6 +46,11 @@ const App = () => {
             name="Camera"
             component={CameraScreen}
             options={{ title: "Take a picture of your book!" }}
+          />
+          <Stack.Screen 
+            name="Photo"
+            component={StoredPictures}
+            options={{ title: "View your photo!" }}
           />
         </Stack.Navigator>
       </NavigationContainer>
