@@ -3,7 +3,7 @@ import { View, Text, TextInput, StyleSheet, Button} from 'react-native';
 import ItemContext from '../contexts/ItemContext';
 import NavButton from '../components/NavButton';
 
- const NewDiaryEntry = ({navigation, route}) => {
+const NewDiaryEntry = ({navigation, route}) => {
   const {create} = useContext(ItemContext);
   const [title, setTitle] = useState("");
   const [pages, setPages] = useState("");
@@ -44,7 +44,7 @@ import NavButton from '../components/NavButton';
           <Button 
             title="Submit"
             onPress={() =>{
-              //add new screen instead of navigation.pop
+              //TO DO : add new screen instead of navigation.pop
               create(title, pages, content, () => navigation.pop());
               
             }}

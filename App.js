@@ -6,6 +6,7 @@ import NewDiaryEntry from './src/screens/NewDiaryEntry';
 import History from './src/screens/History';
 import ViewHistoryItem from './src/screens/ViewHistoryItem';
 import { ItemProvider } from './src/contexts/ItemContext';
+import EditItemScreen from './src/screens/EditItemScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,11 @@ const App = () => {
             name="ViewHistoryItem"
             component={ViewHistoryItem}
             options={{ title: "View Item" }}
+          />
+          <Stack.Screen 
+            name="Edit"
+            component={EditItemScreen}
+            options={{ title: "Edit" }}
           />
         </Stack.Navigator>
       </NavigationContainer>

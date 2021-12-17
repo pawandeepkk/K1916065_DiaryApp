@@ -80,7 +80,7 @@ const dummyData = [
 
   const reducer = (state, action) => {
     switch (action.type) {
-      // CREATE, UPDATE, DELETE endpoints
+      
       case actionTypes.create:
         return [
           ...state,
@@ -109,6 +109,7 @@ const dummyData = [
 
 export const ItemProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, dummyData);
+   
     const addItem = (title, pages, content, callback) => {
         dispatch({type: actionTypes.create, payload: {title, pages, content}})
         if (callback) {
@@ -122,12 +123,20 @@ export const ItemProvider = ({children}) => {
             callback();
         }
     }
+
+    const updateItem = (id, title, pages, content, date, callback) => {
+        dispatch({type: actionTypes.update, payload: {id, title, pages, content, date}})
+        if (callback) {
+            callback();
+        }
+    }
     
     return (
         <ItemContext.Provider value={{
             state: state,
             create: addItem,
             remove: deleteItem,
+            update: updateItem,
         }}>
             {children}
         </ItemContext.Provider>

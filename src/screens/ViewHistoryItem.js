@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Button } from 'react-native';
 import NavButton from '../components/NavButton';
 
  const ViewHistoryItem = ({navigation, route}) => {
@@ -7,12 +7,17 @@ import NavButton from '../components/NavButton';
      return (
      <View>
          <NavButton screenName="History" screenNav="History" navigation={navigation} />
-         <Text> id: {id}</Text>
+         <Text> ID: {id}</Text>
          <Text> TITLE: {title}</Text>
          <Text> CONTENT: {content}</Text>
          <Text> DATE: {new Date(date).toLocaleDateString()}{' '}
                       {new Date(date).toLocaleTimeString()}
          </Text>
+         <Button 
+           title="Edit this entry" onPress={(() => {
+              navigation.navigate('Edit', {id, id})
+           })}
+         />
      </View>
    );
  }
