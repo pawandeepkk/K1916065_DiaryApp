@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useReducer} from 'react';
+import React, { useEffect, useReducer} from 'react';
 import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native';
 import NavButton from '../components/NavButton';
 import { MaterialIcons } from '@expo/vector-icons';
+import { actionTypes } from '../helpers/actionTypes';
 
 const dummyData = [
   {
@@ -81,7 +82,7 @@ const dummyData = [
 const reducer = (state, action) => {
   switch (action.type) {
     // CREATE, UPDATE, DELETE endpoints
-    case 'Create':
+    case actionTypes.create:
       return [
         ...state,
         {
@@ -92,7 +93,7 @@ const reducer = (state, action) => {
           date: new Date()
         }
       ]
-    case 'Update':
+    case actionTypes.update:
       return state.map((e) => {
         if (e.id === action.payload.id) {
           return action.payload;
@@ -100,7 +101,7 @@ const reducer = (state, action) => {
           return e;
         }
       });
-    case 'Delete':
+    case actionTypes.delete:
       return state.filter((e) => e.id !== action.payload.id);
     default:
       return state;
@@ -116,7 +117,7 @@ const reducer = (state, action) => {
         headerRight: () => 
           <Pressable onPress={() => navigation.navigate(
               "NewDiaryEntry", {callback: (payload) => {
-                dispatch({type: "Create", payload: payload})
+                dispatch({type: actionTypes.create, payload: payload})
               }})}
             >
             <MaterialIcons  name="add" size={24} color="blue" />
