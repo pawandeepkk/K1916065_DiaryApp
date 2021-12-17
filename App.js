@@ -7,6 +7,7 @@ import History from './src/screens/History';
 import ViewHistoryItem from './src/screens/ViewHistoryItem';
 import { ItemProvider } from './src/contexts/ItemContext';
 import EditItemScreen from './src/screens/EditItemScreen';
+import CameraScreen from './src/screens/CameraScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,11 @@ const App = () => {
             name="Edit"
             component={EditItemScreen}
             options={{ title: "Edit" }}
+          />
+          <Stack.Screen 
+            name="Camera"
+            component={CameraScreen}
+            options={{ title: "Take a picture of your book!" }}
           />
         </Stack.Navigator>
       </NavigationContainer>

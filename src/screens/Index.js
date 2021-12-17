@@ -8,6 +8,7 @@ import NavButton from '../components/NavButton';
      <View>
          <NavButton screenName="New Diary Entry" screenNav="NewDiaryEntry" navigation={navigation} />
          <NavButton screenName="History" screenNav="History" navigation={navigation} />
+         <NavButton screenName="Camera" screenNav="Camera" navigation={navigation} />
          
          <ScrollView horizontal={false}>
              <Text>This is the home screen</Text>
