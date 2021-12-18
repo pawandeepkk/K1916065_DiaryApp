@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useReducer} from 'react';
-import { View, Text, StyleSheet, FlatList, Pressable } from 'react-native';
+import { View, SafeAreaView, Text, StyleSheet, FlatList, Pressable } from 'react-native';
 import NavButton from '../components/NavButton';
 import { MaterialIcons } from '@expo/vector-icons';
 import { actionTypes } from '../helpers/actionTypes';
@@ -18,44 +18,46 @@ import ItemContext from '../contexts/ItemContext';
   }, [state]);
 
   return (
-    <View>
-        <NavButton screenName="Home" screenNav="Index" navigation={navigation} />
-        <NavButton screenName="New Diary Entry" screenNav="NewDiaryEntry" navigation={navigation} />
-        <FlatList 
-          data={state}
-          keyExtractor={(e) => e.id.toString()}
-          renderItem={({item}) => {
-            return (
-              <Pressable onPress={() => {
-                navigation.navigate('ViewHistoryItem', {
-                  id: item.id,
-                  title: item.title,
-                  content: item.content,
-                  date: item.date.toUTCString()
-                });
-              }}>
-                <View style={styles.itemContainer}>
-                  <View style={styles.dateContainer}>
-                      <Text style={styles.dateText}>
-                        {item.date.toLocaleDateString()}
-                      </Text>
-                      <Text>{item.date.toLocaleTimeString()}</Text>
+   
+      <SafeAreaView>
+          <NavButton screenName="Home" screenNav="Index" navigation={navigation} />
+          <NavButton screenName="New Diary Entry" screenNav="NewDiaryEntry" navigation={navigation} />
+          <FlatList 
+            data={state}
+            keyExtractor={(e) => e.id.toString()}
+            renderItem={({item}) => {
+              return (
+                <Pressable onPress={() => {
+                  navigation.navigate('ViewHistoryItem', {
+                    id: item.id,
+                    title: item.title,
+                    content: item.content,
+                    date: item.date.toUTCString()
+                  });
+                }}>
+                  <View style={styles.itemContainer}>
+                    <View style={styles.dateContainer}>
+                        <Text style={styles.dateText}>
+                          {item.date.toLocaleDateString()}
+                        </Text>
+                        <Text>{item.date.toLocaleTimeString()}</Text>
+                    </View>
+                    <View style={styles.contentContainer}>
+                      <Text style={styles.titleText}>{item.title}</Text>
+                      <Text style={styles.contentText}>{item.content}</Text>
+                      <Pressable onPress={() => {
+                        remove(item.id);
+                      }}>
+                        <MaterialIcons name="delete" size={38} color="grey" />
+                      </Pressable>
+                    </View>
                   </View>
-                  <View style={styles.contentContainer}>
-                    <Text style={styles.titleText}>{item.title}</Text>
-                    <Text style={styles.contentText}>{item.content}</Text>
-                    <Pressable onPress={() => {
-                      remove(item.id);
-                    }}>
-                      <MaterialIcons name="delete" size={38} color="grey" />
-                    </Pressable>
-                  </View>
-                </View>
-              </Pressable>
-            )
-          }}
-        />
-    </View>
+                </Pressable>
+              )
+            }}
+          />
+       </SafeAreaView>
+    
   );
  };
 

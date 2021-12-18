@@ -27,19 +27,21 @@ const CameraScreen = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.container}>
-            <Camera 
-                style={styles.subContainer}
-                ref={(ref) => { camera = ref; }}
-            >
-                <Pressable style={styles.buttonStyle}
-                    onPress={() => { getPicture(); }}
+        
+            <View style={styles.container}>
+                <Camera 
+                    style={styles.subContainer}
+                    ref={(ref) => { camera = ref; }}
                 >
-                    <Text style={styles.textStyle}>Take a Picture!</Text>
-                </Pressable>
-            </Camera>
+                    <Pressable style={styles.buttonStyle}
+                        onPress={() => { getPicture(); }}
+                    >
+                        <Text style={styles.textStyle}>Take a Picture!</Text>
+                    </Pressable>
+                </Camera>
 
-        </View>
+            </View>
+        
     );
 };
 const styles = StyleSheet.create({

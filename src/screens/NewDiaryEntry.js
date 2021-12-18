@@ -11,8 +11,6 @@ const NewDiaryEntry = ({navigation, route}) => {
 
     return (
        <View>
-          <NavButton screenName="Home" screenNav="Index" navigation={navigation} />
-           <NavButton screenName="History" screenNav="History" navigation={navigation} />
 
           <Text style={styles.textLabel}>What book did you read today?</Text>
           <TextInput
@@ -46,7 +44,7 @@ const NewDiaryEntry = ({navigation, route}) => {
             title="Submit"
             onPress={() =>{
               //TO DO : add new screen instead of navigation.pop
-              create(title, pages, content, () => navigation.pop());
+              create(title, pages, content, () => navigation.goBack());
               
             }}
           />

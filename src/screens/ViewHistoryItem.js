@@ -11,6 +11,7 @@ import NavButton from '../components/NavButton';
          <Text> ID: {id}</Text>
          <Text> TITLE: {title}</Text>
          <Text> CONTENT: {content}</Text>
+         <Text> PAGES: {pages}</Text>
          <Text> DATE: {new Date(date).toLocaleDateString()}{' '}
                       {new Date(date).toLocaleTimeString()}
          </Text>
