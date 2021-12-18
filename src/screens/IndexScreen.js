@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet} from 'react-native';
 import ListItem from '../components/ListItem';
+import PopUp from '../components/PopUp';
 
 
  const IndexScreen = ({navigation}) => {
@@ -8,6 +9,7 @@ import ListItem from '../components/ListItem';
      <View style={styles.backgroundContainer}>
          <ScrollView horizontal={false}>
              <Text style={styles.titleText}>Welcome to your very own Reading Diary!</Text>
+             <PopUp />
              <ListItem caption = "This is the home page!" image = {require('../../assets/girl-reading.jpg')} />
              <ListItem caption = "You can make a new entry every time you read!" image = {require('../../assets/boy-reading.jpg')} />
              <ListItem caption = "Be sure to take a picture of your book!" image = {require('../../assets/reading-together.jpg')} />
