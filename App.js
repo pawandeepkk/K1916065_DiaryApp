@@ -19,7 +19,11 @@ const App = () => {
     <ItemProvider>
       <NavigationContainer>
          <Stack.Navigator initialRouteName ="Index">
-           <Stack.Screen name="My Reading Diary" component={NavBar}/>
+           <Stack.Screen name="My Reading Diary" component={NavBar} options={{
+             headerStyle:{
+              backgroundColor: '#007aff',
+            },
+           }}/>
            <Stack.Screen name="NewDiaryEntry" component={NewDiaryEntry} />
           <Stack.Screen name="History" component={History} />
           <Stack.Screen name="ViewHistoryItem"

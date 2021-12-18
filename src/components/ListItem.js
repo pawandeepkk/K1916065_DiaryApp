@@ -12,9 +12,11 @@ const ListItem = ({caption, image}) => {
 
 const styles = StyleSheet.create({
     nameText: {
-        fontSize: 20,
-        color: 'blue',
-        marginTop: 10
+        fontSize: 25,
+        fontFamily: 'ChalkboardSE-Bold',
+        color: 'green',
+        textAlign: 'center',
+
     },
     
     img: {

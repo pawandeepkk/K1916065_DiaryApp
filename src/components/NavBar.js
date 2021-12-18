@@ -25,7 +25,6 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
                 component={IndexStackScreen}
                 options={{
                     tabBarLabel: "Home",
-                    tabBarColor: "#565bfc",
                     tabBarIcon: ({ color }) => (
                         <FontAwesome5 name="home" size={24} color={color} />
                     ),
@@ -36,7 +35,6 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
                 component={NewDiaryEntryStackScreen}
                 options={{
                     tabBarLabel: "New Entry",
-                    tabBarColor: "#1f65ff",
                     tabBarIcon: ({ color }) => (
                         <Entypo name="new-message" size={24} color={color} />
                     ),
@@ -47,7 +45,6 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
                 component={HistoryStackScreen} 
                 options={{
                     tabBarLabel: 'History',
-                    tabBarColor: "red",
                     tabBarIcon: ({ color }) => (
                         <FontAwesome5 name="history" size={24} color={color} />
                     ),
@@ -62,7 +59,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
  const IndexStackScreen = ({navigation}) => (
     <IndexStack.Navigator screenOptions={{
       headerStyle: {
-        backgroundColor: '#565bfc',
+        backgroundColor: '#fbb13c',
       },
       headerTintColor: 'white',
       headerTitleStyle: {
