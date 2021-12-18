@@ -11,6 +11,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 
  const IndexStack = createNativeStackNavigator();
  const NewDiaryEntryStack = createNativeStackNavigator();
+ const HistoryStack = createNativeStackNavigator();
  const Tab = createMaterialBottomTabNavigator();
 
  const NavBar = () =>  {
@@ -24,7 +25,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
                 component={IndexStackScreen}
                 options={{
                     tabBarLabel: "Home",
-                    tabBarColor: "#009387",
+                    tabBarColor: "#565bfc",
                     tabBarIcon: ({ color }) => (
                         <FontAwesome5 name="home" size={24} color={color} />
                     ),
@@ -43,10 +44,10 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
             />
              <Tab.Screen
                 name="History" 
-                component={History} 
+                component={HistoryStackScreen} 
                 options={{
                     tabBarLabel: 'History',
-                    tabBarColor: "#694fad",
+                    tabBarColor: "red",
                     tabBarIcon: ({ color }) => (
                         <FontAwesome5 name="history" size={24} color={color} />
                     ),
@@ -61,11 +62,13 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
  const IndexStackScreen = ({navigation}) => (
     <IndexStack.Navigator screenOptions={{
       headerStyle: {
-        backgroundColor: '#009387',
+        backgroundColor: '#565bfc',
       },
-      headerTintColor: '#fff',
+      headerTintColor: 'white',
       headerTitleStyle: {
-        fontWeight: 'bold'
+        fontFamily: 'ChalkboardSE-Bold',
+        fontWeight: 'bold',
+        fontSize: '35',
       }
     }}>
       <IndexStack.Screen 
@@ -84,11 +87,30 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
         },
         headerTintColor: 'white',
         headerTitleStyle: {
-            fontWeight: "bold"
+            fontFamily: 'ChalkboardSE-Bold',
+            fontWeight: "bold",
+            fontSize: '35',
         }
     }}>
-        <NewDiaryEntryStack.Screen name="NewEntry" component={NewDiaryEntry} />
+        <NewDiaryEntryStack.Screen name="New Entry" component={NewDiaryEntry} />
   
   </NewDiaryEntryStack.Navigator>
+  );
+
+  const HistoryStackScreen = ({navigation}) => (
+    <HistoryStack.Navigator screenOptions={{
+        headerStyle: {
+            backgroundColor: '#fca103',
+        },
+        headerTintColor: 'white',
+        headerTitleStyle: {
+            fontFamily: 'ChalkboardSE-Bold',
+            fontWeight: "bold",
+            fontSize: '35',
+        }
+    }}>
+        <HistoryStack.Screen name="History" component={History} />
+  
+  </HistoryStack.Navigator>
   );
   

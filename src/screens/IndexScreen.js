@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Text, ScrollView } from 'react-native';
+import { SafeAreaView, View, Text, ScrollView, StyleSheet} from 'react-native';
 import ListItem from '../components/ListItem';
 import NavButton from '../components/NavButton';
 // import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,19 +7,54 @@ import NavButton from '../components/NavButton';
 
  const IndexScreen = ({navigation}) => {
    return (
-     <SafeAreaView>
+     <View style={styles.backgroundContainer}>
          <ScrollView horizontal={false}>
-          <NavButton screenName="New Diary Entry" screenNav="NewDiaryEntry" navigation={navigation} />
-          <NavButton screenName="History" screenNav="History" navigation={navigation} />
-          <NavButton screenName="Camera" screenNav="Camera" navigation={navigation} />
-             <Text>This is the home screen</Text>
+             <Text style={styles.titleText}>Welcome to your very own Reading Diary!</Text>
              <ListItem caption = "This is a picture of a girl reading" image = {require('../../assets/girl-reading.jpg')} />
              <ListItem caption = "This is a picture of a boy reading" image = {require('../../assets/boy-reading.jpg')} />
              <ListItem caption = "This is a picture of a girl reading" image = {require('../../assets/girl-reading.jpg')} />
              <ListItem caption = "This is a picture of a boy reading" image = {require('../../assets/boy-reading.jpg')} />
           </ScrollView>
-     </SafeAreaView>
+     </View>
    );
  }
+
+ const styles = StyleSheet.create({
+  backgroundContainer: {
+    backgroundColor: '#565bfc',
+  },
+  itemContainer: {
+    marginTop: 15,
+    padding: 15,
+    backgroundColor: '#009387',
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  dateContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  dateText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  contentContainer: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  titleText: {
+    fontFamily: 'ChalkboardSE-Bold',
+    color: '#ffca7a',
+    fontWeight: "bold",
+    fontSize: 30,
+    textAlign: 'center',
+    padding: 5,
+  },
+  contentText: {
+    fontSize: 12,
+    paddingLeft: 15,
+  }
+});
 
  export default IndexScreen; 

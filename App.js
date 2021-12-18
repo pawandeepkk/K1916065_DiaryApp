@@ -20,18 +20,9 @@ const App = () => {
       <NavigationContainer>
          <Stack.Navigator initialRouteName ="Index">
            <Stack.Screen name="My Reading Diary" component={NavBar}/>
-           <Stack.Screen 
-            name="NewDiaryEntry"
-            component={NewDiaryEntry}
-            options={{ title: "New Diary Entry" }}
-          />
-          <Stack.Screen 
-            name="History"
-            component={History}
-            options={{ title: "History" }}
-          />
-          <Stack.Screen 
-            name="ViewHistoryItem"
+           <Stack.Screen name="NewDiaryEntry" component={NewDiaryEntry} />
+          <Stack.Screen name="History" component={History} />
+          <Stack.Screen name="ViewHistoryItem"
             component={ViewHistoryItem}
             options={{ title: "View Item" }}
           />
