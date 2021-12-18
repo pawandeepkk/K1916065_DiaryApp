@@ -9,6 +9,9 @@ import NavButton from '../components/NavButton';
    return (
      <SafeAreaView>
          <ScrollView horizontal={false}>
+          <NavButton screenName="New Diary Entry" screenNav="NewDiaryEntry" navigation={navigation} />
+          <NavButton screenName="History" screenNav="History" navigation={navigation} />
+          <NavButton screenName="Camera" screenNav="Camera" navigation={navigation} />
              <Text>This is the home screen</Text>
              <ListItem caption = "This is a picture of a girl reading" image = {require('../../assets/girl-reading.jpg')} />
              <ListItem caption = "This is a picture of a boy reading" image = {require('../../assets/boy-reading.jpg')} />
