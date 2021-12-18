@@ -60,7 +60,7 @@ const PopUp = () => {
                             }}> Well done!
                 </Text>
             </PopUpAlert>
-            <Button title="Submit" onPress={() => setVisible(true)} />
+            <Button title="Press me!" onPress={() => setVisible(true)} />
         </View>
     );
 };

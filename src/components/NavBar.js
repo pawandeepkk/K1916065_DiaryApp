@@ -6,11 +6,13 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
  import History from '../screens/History';
  import { FontAwesome5 } from '@expo/vector-icons';
  import { Entypo } from '@expo/vector-icons';
+import EditItemScreen from '../screens/EditItemScreen';
 
 
  const IndexStack = createNativeStackNavigator();
  const NewDiaryEntryStack = createNativeStackNavigator();
  const HistoryStack = createNativeStackNavigator();
+ const EditItemScreenStack = createNativeStackNavigator();
  const Tab = createMaterialBottomTabNavigator();
 
  const NavBar = () =>  {

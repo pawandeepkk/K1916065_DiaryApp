@@ -3,6 +3,7 @@ import { View, SafeAreaView, Text, StyleSheet, FlatList, Pressable } from 'react
 import NavButton from '../components/NavButton';
 import { MaterialIcons } from '@expo/vector-icons';
 import ItemContext from '../contexts/ItemContext';
+import PopUp from '../components/PopUp';
 
  const History = ({navigation}) => {
   const {state, remove} = useContext(ItemContext);

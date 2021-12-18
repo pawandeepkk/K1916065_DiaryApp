@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Button} from 'react-native';
 import ItemContext from '../contexts/ItemContext';
 import NavButton from '../components/NavButton';
+import PopUp from '../components/PopUp';
 
 const EditItemScreen = ({navigation, route}) => {
     const {id} = route.params;
@@ -12,11 +13,11 @@ const EditItemScreen = ({navigation, route}) => {
     const [content, setContent] = useState(currentItem.content);
     
     return (
-        
+        <>
           <View>
             <NavButton screenName="Home" screenNav="Index" navigation={navigation} />
-              <NavButton screenName="History" screenNav="History" navigation={navigation} />
-  
+            <NavButton screenName="History" screenNav="History" navigation={navigation} />
+            
             <Text style={styles.textLabel}>What book did you read today?</Text>
             <TextInput
               style={styles.TextInput} 
@@ -44,6 +45,8 @@ const EditItemScreen = ({navigation, route}) => {
                 setContent(text);
               }} 
             />
+            {/* // Tried to implement a "pop up" below... to see functionality - 
+            go to home screen and press the "press me!" button. */}
             <Button 
               title="Submit"
               onPress={() => {
@@ -57,6 +60,7 @@ const EditItemScreen = ({navigation, route}) => {
               }}
             />
           </View>
+          </>
         
     );
   }
