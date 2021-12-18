@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, TextInput, StyleSheet, Button} from 'react-native';
+import { SafeAreaView, Text, TextInput, StyleSheet, Button} from 'react-native';
 import ItemContext from '../contexts/ItemContext';
 import NavButton from '../components/NavButton';
 
@@ -10,7 +10,7 @@ const NewDiaryEntry = ({navigation, route}) => {
   const [content, setContent] = useState("");
 
     return (
-       <View>
+       <SafeAreaView>
 
           <Text style={styles.textLabel}>What book did you read today?</Text>
           <TextInput
@@ -48,7 +48,7 @@ const NewDiaryEntry = ({navigation, route}) => {
               
             }}
           />
-        </View>
+        </SafeAreaView>
    );
  }
 
