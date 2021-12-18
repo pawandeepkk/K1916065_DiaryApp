@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useReducer} from 'react';
+import React, { useContext, useEffect} from 'react';
 import { View, SafeAreaView, Text, StyleSheet, FlatList, Pressable } from 'react-native';
 import NavButton from '../components/NavButton';
 import { MaterialIcons } from '@expo/vector-icons';
-import { actionTypes } from '../helpers/actionTypes';
 import ItemContext from '../contexts/ItemContext';
 
  const History = ({navigation}) => {

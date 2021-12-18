@@ -1,8 +1,6 @@
 import React from 'react';
-import { SafeAreaView, View, Text, ScrollView, StyleSheet} from 'react-native';
+import { View, Text, ScrollView, StyleSheet} from 'react-native';
 import ListItem from '../components/ListItem';
-import NavButton from '../components/NavButton';
-// import { SafeAreaView } from 'react-native-safe-area-context';
 
 
  const IndexScreen = ({navigation}) => {
